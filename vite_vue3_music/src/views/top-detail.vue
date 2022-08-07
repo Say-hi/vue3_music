@@ -1,0 +1,30 @@
+<script lang="ts">
+  import createDetailComponent from '@/utils/create-detail-component'
+  import { getTopDetail } from '@/api/top-list'
+  import { TOP_KEY } from '@/interface'
+
+  export default createDetailComponent('top-detail', TOP_KEY, getTopDetail)
+</script>
+<template>
+  <div class="top-detail">
+    <music-list
+      :songs="songs"
+      :title="title"
+      :pic="pic"
+      :loading="loading"
+      rank
+    ></music-list>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+  .top-detail {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: $color-background;
+  }
+</style>
